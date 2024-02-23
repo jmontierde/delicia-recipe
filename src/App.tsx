@@ -1,10 +1,10 @@
 import "./App.css";
-import { Button } from "./components/ui/button";
+import Learn from "./ReactTypeScript/Learn";
 
 function App() {
   return (
     <>
-      <Button>Aa</Button>
+      <Learn message="Hello WWorld" age={20} />
     </>
   );
 }
