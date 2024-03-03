@@ -1,10 +1,24 @@
-import "./App.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+// import Hooks from "./ReactTypeScript/Hooks";
 import Learn from "./ReactTypeScript/Learn";
+import Home from "./features/components/Home";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+
+    {
+      path: "/learn",
+      element: <Learn message="Hello WWorld" age={20} />,
+    },
+  ]);
+
   return (
     <>
-      <Learn message="Hello WWorld" age={20} />
+      <RouterProvider router={router} />
     </>
   );
 }
