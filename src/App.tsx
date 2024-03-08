@@ -2,12 +2,17 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // import Hooks from "./ReactTypeScript/Hooks";
 import Learn from "./ReactTypeScript/Learn";
 import Home from "./features/components/Home";
+import RecipeDetails from "./features/recipeSlice/RecipeDetails";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "/recipe/:id",
+      element: <RecipeDetails />,
     },
 
     {

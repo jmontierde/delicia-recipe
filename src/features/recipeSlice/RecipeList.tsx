@@ -1,28 +1,61 @@
-import { RootState } from "@/store";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { RootState, useAppDispatch } from "@/store";
+import { Suspense, useDeferredValue, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { fetchRecipe } from "./recipeSlice";
+import { Link } from "react-router-dom";
 
 const RecipeList: React.FC = () => {
-  const { recipes } = useSelector((state: RootState) => state.recipes);
-  const dispatch = useDispatch();
+  const { recipes, loading, error } = useSelector(
+    (state: RootState) => state.recipes
+  );
+
+  const dispatch = useAppDispatch();
+
+  const [searchRecipeInput, setSearchRecipeInput] = useState("");
+
+  const deferredSearchQuery = useDeferredValue(searchRecipeInput);
+
+  console.log("recipes", recipes);
 
   useEffect(() => {
-    dispatch(fetchRecipe());
-  }, [dispatch]);
-
-  //   const recipeList = recipes.map((recipe) => recipe.label);
-
-  //   console.log("recipeList", recipeList);
+    const query =
+      deferredSearchQuery.trim() === "" ? "Chicken" : deferredSearchQuery;
+    dispatch(fetchRecipe(query));
+  }, [dispatch, deferredSearchQuery]);
 
   return (
-    <div>
-      <div>
-        <h2>Recipe</h2>
-        {recipes.map((recipe) => (
-          <p>{recipe.label}</p>
-        ))}
-      </div>
+    <div className="bg-darkGreen">
+      <input
+        type="text"
+        name="searchRecipe"
+        id="searchRecipe"
+        onChange={(e) => setSearchRecipeInput(e.target.value)}
+      />
+      {loading ? (
+        <span>Loading...</span>
+      ) : error ? (
+        <span>Error ...</span>
+      ) : (
+        <div className="grid grid-cols-3 gap-6 w-full mx-auto place-items-center ">
+          {recipes.map((recipe, index) => (
+            <Link to={`/recipe/${index}`}>
+              <Suspense fallback={<div>Loading...</div>}>
+                <div
+                  key={index}
+                  className=" bg-[#FEFAE0] w-full min-h-full p-6 space-y-3 rounded-sm"
+                >
+                  <img
+                    src={recipe.image}
+                    alt=""
+                    className="w-full h-auto rounded-lg"
+                  />
+                  <p className="text-darkGreen text-center">{recipe.label}</p>
+                </div>
+              </Suspense>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

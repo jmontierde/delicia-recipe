@@ -4,6 +4,7 @@ interface Recipe {
   label: string;
   image: string;
   url: string;
+  index: string;
   // Add other properties as needed
 }
 
@@ -24,15 +25,18 @@ const initialState: RecipeState = {
   loading: false,
   error: null,
 };
-const API_ID = "b01dd00e";
-const API_KEY = "25e074df69f37e86b32e53acf03a35b0";
+const API_ID = "b46ca1cd";
+const API_KEY = "9b3d1f744bc2f3be081354ba00ebf9a5";
 
-export const fetchRecipe = createAsyncThunk(
+export const fetchRecipe = createAsyncThunk<Recipe[], string>(
   "recipes/fetchRecipeList",
-  async () => {
+  async (recipeSearch) => {
     const response = await axios.get<EdamamResponse>(
-      `https://api.edamam.com/search?q=chicken&app_id=${API_ID}&app_key=${API_KEY}`
+      `https://api.edamam.com/search?q=${recipeSearch}&app_id=${API_ID}&app_key=${API_KEY}`
+      // `https://api.edamam.com/api/recipes/v2?type=public&app_id=${API_ID}&app_key=${API_KEY}`
     );
+
+    console.log("response", response);
     return response.data.hits.map((hit) => hit.recipe);
   }
 );
