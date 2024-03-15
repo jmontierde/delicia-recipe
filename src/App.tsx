@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Learn from "./ReactTypeScript/Learn";
 import Home from "./features/components/Home";
 import RecipeDetails from "./features/recipeSlice/RecipeDetails";
+import { ThreeDCardDemo } from "./features/components/ThreeDCardDemo";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +16,10 @@ function App() {
       element: <RecipeDetails />,
     },
 
+    {
+      path: "/card",
+      element: <ThreeDCardDemo />,
+    },
     {
       path: "/learn",
       element: <Learn message="Hello WWorld" age={20} />,

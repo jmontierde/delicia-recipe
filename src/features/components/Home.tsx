@@ -1,5 +1,5 @@
 import RecipeList from "../recipeSlice/RecipeList";
-import FoodList from "./FoodList";
+// import FoodList from "./FoodList";
 import Navbar from "./Navbar";
 import Recipe from "./Recipe";
 
@@ -30,7 +30,7 @@ const Home = () => {
         </div>
       </div>
       <Recipe />
-      <FoodList />
+      {/* <FoodList /> */}
       <RecipeList />
     </>
   );

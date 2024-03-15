@@ -4,10 +4,13 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 module.exports = withMT({
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./pages/**/*.{ts,tsx, mdx}",
+    "./components/**/*.{ts,tsx, mdx}",
+
+    "./src/**/*.{ts,tsx, mdx}",
+    "./app/**/*.{ts,tsx, mdx}",
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "",
   theme: {
@@ -27,10 +30,10 @@ module.exports = withMT({
       },
       colors: {
         darkGreen: "#1A220F",
-        lightGreen: "606C38",
-        lightCream: "FEFAE0",
-        darkBrown: "BC6C25",
-        lightBrown: "DDA15E",
+        lightGreen: "#606C38",
+        lightCream: "#FEFAE0",
+        darkBrown: "#BC6C25",
+        lightBrown: "#DDA15E",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

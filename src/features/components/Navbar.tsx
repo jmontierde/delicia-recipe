@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <>
@@ -8,11 +10,11 @@ const Navbar = () => {
           className="w-16 text-white"
         /> */}
         <h1 className="font-lobster font-bold  text-2xl">Delicia</h1>
-        <ul className="flex space-x-3 text-cream">
-          <li>Home</li>
-          <li>About</li>
-          <li>Food</li>
-          <li>Recipe</li>
+        <ul className="flex space-x-6 text-cream">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/about">Food</Link>
+          <Link to="/about">Recipe</Link>
         </ul>
         <img
           src="/src/assets/search-icon.png"
