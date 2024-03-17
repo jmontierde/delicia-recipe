@@ -1,9 +1,14 @@
+import gsap from "gsap";
 import RecipeList from "../recipeSlice/RecipeList";
 // import FoodList from "./FoodList";
 import Navbar from "./Navbar";
 import Recipe from "./Recipe";
 
 const Home = () => {
+  const tl = gsap.timeline();
+
+  tl.from("#imageAnimate", { y: -500, duration: 1, ease: "power1.in" });
+
   return (
     <>
       <Navbar />
@@ -26,6 +31,7 @@ const Home = () => {
             src="/src/assets/chafing-dish.png"
             alt="Salad"
             className=" w-10/12  mx-auto"
+            id="imageAnimate"
           />
         </div>
       </div>
