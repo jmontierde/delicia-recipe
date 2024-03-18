@@ -1,13 +1,17 @@
 import gsap from "gsap";
-import RecipeList from "../recipeSlice/RecipeList";
 // import FoodList from "./FoodList";
 import Navbar from "./Navbar";
 import Recipe from "./Recipe";
-
+import Search from "./Search";
 const Home = () => {
   const tl = gsap.timeline();
 
-  tl.from("#imageAnimate", { y: -500, duration: 1, ease: "power1.in" });
+  tl.from("#imageAnimate", {
+    y: -500,
+    duration: 0.5,
+    ease: "power1.in",
+    repeat: 1,
+  });
 
   return (
     <>
@@ -37,7 +41,8 @@ const Home = () => {
       </div>
       <Recipe />
       {/* <FoodList /> */}
-      <RecipeList />
+      {/* <RecipeList/> */}
+      <Search />
     </>
   );
 };

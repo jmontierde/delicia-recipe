@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
 const Navbar = () => {
   return (
@@ -9,18 +10,19 @@ const Navbar = () => {
           alt="logo"
           className="w-16 text-white"
         /> */}
-        <h1 className="font-lobster font-bold  text-2xl">Delicia</h1>
-        <ul className="flex space-x-6 text-cream">
+        <h1 className="font-lobster font-bold  text-2xl ">Delicia</h1>
+        <ul className="flex space-x-6 text-cream ">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/about">Food</Link>
           <Link to="/about">Recipe</Link>
         </ul>
-        <img
+        {/* <Search /> */}
+        {/* <img
           src="/src/assets/search-icon.png"
           alt="search-icon"
           className="w-8"
-        />
+        /> */}
       </div>
     </>
   );

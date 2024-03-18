@@ -14,7 +14,7 @@ export interface Recipe {
   // Add other properties as needed
 }
 
-interface RecipeState {
+export interface RecipeState {
   recipes: Recipe[];
   loading: boolean;
   error: string | null;
