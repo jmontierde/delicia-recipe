@@ -3,6 +3,8 @@ import gsap from "gsap";
 import Navbar from "./Navbar";
 import Recipe from "./Recipe";
 import Search from "./Search";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+
 const Home = () => {
   const tl = gsap.timeline();
 
@@ -12,6 +14,10 @@ const Home = () => {
     ease: "power1.in",
     repeat: 1,
   });
+
+  const words = ` Craving delicious yet healthy food? Look no further! Our app makes
+it easy to find and cook recipes that tantalize your taste buds and
+  fuel your body for optimal health.`;
 
   return (
     <>
@@ -25,9 +31,7 @@ const Home = () => {
             Delicious Food, <br /> Healthy Food
           </h1>{" "}
           <p className=" pt-6 text-lg text-customText opacity-70  w-10/12">
-            Craving delicious yet healthy food? Look no further! Our app makes
-            it easy to find and cook recipes that tantalize your taste buds and
-            fuel your body for optimal health.
+            <TextGenerateEffect words={words} className="text-customText" />
           </p>
         </div>
         <div className="w-3/6 ">

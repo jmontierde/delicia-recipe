@@ -31,13 +31,13 @@ const RecipeDetails: React.FC = () => {
     <>
       <Navbar />
 
-      <div className="flex px-6 py-6 bg-lightCream">
+      <div className="flex p-12 bg-lightCream">
         {/* Image container */}
         <div className="w-1/2 h-auto">
           <img src={image} alt="" className="w-full h-full object-cover" />
         </div>
         {/* Remaining content */}
-        <div className="w-1/2 px-6 space-y-6">
+        <div className="w-1/2 px-12 space-y-6">
           <div className="py-3">
             <h1 className="text-4xl font-bold">{label}</h1>
             {cuisineType.map((cuisine) => (

@@ -23,11 +23,12 @@ const Search = () => {
   }, [dispatch, deferredSearchQuery]);
 
   return (
-    <div className="flex  flex-col pt-6 bg-darkGreen">
+    <div className="flex  flex-col pt-12 bg-darkGreen">
       <input
         type="text"
         id="searchInput"
-        className="w-[900px] py-2 text-lg rounded-sm border text-center mx-auto " // Use w-1/2 for half-screen width
+        className="w-1/3 py-2 text-lg rounded-sm border pl-6 mx-auto " // Use w-1/2 for half-screen width
+        placeholder="Search Recipe..."
         onChange={(e) => setSearchRecipeInput(e.target.value)}
       />
 
